@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+        padding: 0px;
+        margin: 0px;
+        }
+        form{
+        width: 500px;
+        height: 300px;
+        margin: 10px auto;
+        }
+        form select{
+        width: 140px;
+        height: 50px;
+        text-align: center;
+        line-height: 30px;
+        font-size: 20px;
+        }
+       </style>
+</head>
+
+<body>
+    <form>
+        <select id="chose1" onchange="change(this.selectedIndex)"></select>
+        <select id="chose2"></select>
+        <select id="chose3"></select>
+    </form>
+    <script>
+        var x = ["请选择...", "广东省", "湖南省"];
+        var y = [
+            ["请选择..."],
+            ["广州市", "深圳市"],
+            ["长沙市", "衡阳市"],
+        ];
+        var z = [
+            ["请选择..."],
+            ["天河区", "白云区"],
+            ["福田区", "南山区"],
+        ];
+
+        window.onload = init;
+        function init() {
+            var chose1 = document.getElementById("chose1");
+            var chose2 = document.getElementById("chose2");
+            var chose3 = document.getElementById("chose3");
+            chose1.length = x.length;
+            for (var i = 0; i < x.length; i++) {
+                chose1.options[i].text = x[i];
+            }
+            var index = 0;
+            chose2.length = y[index].length;
+            for (var j = 0; j < y[index].length; j++) {
+                chose2.options[j].text = y[index][j];
+            }
+            chose3.length = z[index].length;
+            for (var k = 0; k < z[index].length; k++) {
+                chose3.options[k].text = z[index][k];
+            }
+        }
+        function change(obj) {
+            var chose2 = document.getElementById("chose2");
+            var chose3 = document.getElementById("chose3");
+            chose2.length = y[obj].length;
+            for (var j = 0; j < y[obj].length; j++) {
+                chose2.options[j].text = y[obj][j];
+            }
+            chose3.length = z[obj].length;
+            for (var k = 0; k < z[obj].length; k++) {
+                chose3.options[k].text = z[obj][k];
+            }
+        }
+    </script>
+</body>
+
+</html>

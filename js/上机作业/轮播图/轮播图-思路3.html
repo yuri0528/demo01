@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		.pic {
+			position: relative;
+			margin: 20px auto;
+			width: 800px;
+			height: 800px;
+			border: pink 5px solid;
+		}
+
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="pic">
+		<img src="img/page2_img01.jpg" />
+		<img src="img/page2_img02.jpg" />
+		<img src="img/page2_img03.jpg" />
+	</div>
+	<script src="js/jquery-1.12.4.min.js"></script>
+	<script>
+		var index = 0;
+		$(".pic").each(function (index, ele) {
+			var img = $(ele).find("img");
+			// console.log(img)
+			setInterval(function () {
+				img.hide().eq(index).show();
+				index++;
+				if (index == 3) {
+					index = 0;
+				}
+			}, 2000)
+		})
+	</script>
+</body>
+
+</html>

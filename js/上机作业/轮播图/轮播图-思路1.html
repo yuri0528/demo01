@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.pic{
+				position: relative;
+			}
+			.pic img{
+				position: absolute;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+			.pic img:nth-of-type(1){
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="pic">
+			<img src="img/page2_img01.jpg" />
+			<img src="img/page2_img02.jpg"/>
+			<img src="img/page2_img03.jpg"/>
+		</div>
+		<script type="text/javascript">
+			var imgs = document.getElementsByTagName("img");
+//			console.log(imgs);
+			var index = 0;
+			function lunbo(){
+				for(var i=0;i<imgs.length;i++){
+					imgs[i].style.display='none';
+				}
+				imgs[index].style.display='block';
+			}
+			function start(){
+				index++;
+				if(index>=imgs.length){
+					index=0;
+				}
+				lunbo();
+			}
+			setInterval(start,3000);
+		</script>
+	</body>
+</html>
